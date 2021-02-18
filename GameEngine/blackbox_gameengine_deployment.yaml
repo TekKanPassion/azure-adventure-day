@@ -57,13 +57,20 @@ spec:
       - name: blackboxgameengine
         image: ghcr.io/azure-adventure-day/azure-adventure-day-coach/gamedayengine-web:latest
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits: 
+            cpu: 500m
+            memory: 128Mi
         ports:
           - containerPort: 80
             name: gameengine
             protocol: TCP
         env: 
           - name: "ConnectionStrings__GameEngineDB"
-            value: "Server=tcp:game-sqlserver.windows.net,1433;Initial Catalog=gamedb;Persist Security Info=False;User ID=gamedbadministrator;Password=herebepassword;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+            value: "Server=tcp:game-sqlserver-564fa4.database.windows.net,1433;Initial Catalog=gamedb;Persist Security Info=False;User ID=gamedbadministrator;Password=R4$7oP6}<uRe7e;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
           - name: "ARCADE_BACKENDURL"
             value: "http://arcadebackend/pick"
       - name: istio-proxy
