@@ -9,7 +9,8 @@ class PickStrategyFactory {
     }
 
     getStrategy() {
-        switch (this._defaultStrategy) {
+        
+       /* switch (this._defaultStrategy) {
             case RPSLSStrategies.ROCK:
                 return new FixedStrategy(RPSLSChoices[0]);
             case RPSLSStrategies.PAPER:
@@ -23,6 +24,8 @@ class PickStrategyFactory {
             case RPSLSStrategies.RANDOM:
                 return new RandomStrategy();
         }
+        */
+        return new RandomStrategy();
     }
 
     setDefaultStrategy(newDefaultStrategy) {
