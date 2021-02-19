@@ -3,6 +3,8 @@ const appInsights = require("applicationinsights");
 
 const pick = async (req, res) => {
     var Player1Name = req.body.Player1Name;
+    if (Player1Name == 'Kye' || Player1Name == '')
+        // logic goes here !
     var matchId = req.body.MatchId;
     if (Player1Name == undefined || matchId == undefined) {
         res.status(400);
